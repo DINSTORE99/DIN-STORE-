@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DIN STORE 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{
+    --bg:#0a0f1a;
+    --panel1:#17326f;
+    --panel2:#2458c4;
+    --accent:#38bdf8;
+    --text:#e6edf3;
+    --green:#25d366;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#071020);color:var(--text)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:46px;height:46px;border-radius:50%}
+  .brand h1{font-size:18px;font-weight:700}
+  h2{color:var(--accent);margin:20px 0 10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .card,.akrab-item{background:linear-gradient(180deg,#0f2a66,#203ea8);border-radius:12px;padding:14px;text-align:center}
+  .price{font-weight:700;color:var(--accent);margin-bottom:8px}
+  .card button,.akrab-item button{background:linear-gradient(90deg,var(--accent),#60a5fa);border:none;padding:8px 14px;border-radius:24px;color:#062b3a;font-weight:700;cursor:pointer}
+  .overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:999}
+  .overlay.show{display:flex}
+  .backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.7)}
+  .modal{position:relative;z-index:10;background:linear-gradient(180deg,var(--panel1),var(--panel2));padding:20px;border-radius:12px;max-width:480px;width:92%}
+  .modal h2{margin-bottom:8px}
+  .modal .actions{display:flex;gap:8px;margin-top:14px}
+  .modal .actions a,.modal .actions button{flex:1;padding:10px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+  .modal .actions a{background:var(--green);color:#072017;text-decoration:none}
+  .modal .actions button{background:rgba(255,255,255,0.06);color:var(--text)}
+  /* glossy effect */
+  .shiny{position:relative;overflow:hidden}
+  .shiny::before{
+    content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;
+    background:linear-gradient(120deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.5) 50%,rgba(255,255,255,0.05) 100%);
+    transform:skewX(-20deg);animation:shine 2s infinite;
+  }
+  @keyframes shine{0%{left:-75%}50%{left:125%}100%{left:125%}}
+  /* sosmed strip */
+  .prod-strip{display:flex;flex-wrap:nowrap;gap:14px;overflow-x:auto;padding:16px 8px;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+  .prod-card{flex:0 0 250px;background:linear-gradient(90deg,#2563eb,#3b82f6);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;color:#fff}
+  .prod-thumb{width:100%;height:120px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center}
+  .prod-thumb img{max-height:70px;max-width:90%;object-fit:contain}
+  .btn-wa{display:flex;align-items:center;justify-content:center;gap:6px;background:#25D366;color:#fff;padding:10px;border-radius:10px;text-decoration:none;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="https://i.ibb.co.com/qGH3Nyz/Screenshot-20250913-215333.jpg" alt="DIN STORE 2025" />
+    <h1>DIN STORE</h1>
+  </div>
+</header>
+
+<!-- Produk -->
+<section id="products"></section>
+
+<!-- Section Produk Sosial Media akan disisipkan di sectionBtns (lihat script) -->
+
+<section>
+  <h2>Kuota Akrab</h2>
+  <div class="grid" id="akrab"></div>
+</section>
+
+<!-- Section Fitur -->
+<section style="margin:20px 0;display:grid;gap:16px">
+  <div style="background:#1d4ed8;padding:18px;border-radius:16px;text-align:center;color:#fff">
+    <div style="font-size:28px">⚡</div>
+    <h3 style="margin:8px 0;font-weight:700">Cepat & Stabil</h3>
+    <p>Koneksi internet super cepat dan stabil untuk semua kebutuhan Anda.</p>
+  </div>
+  <div style="background:#1d4ed8;padding:18px;border-radius:16px;text-align:center;color:#fff">
+    <div style="font-size:28px">🛡️</div>
+    <h3 style="margin:8px 0;font-weight:700">Aman & Terpercaya</h3>
+    <p>Enkripsi tingkat tinggi untuk melindungi data dan privasi Anda.</p>
+  </div>
+  <div style="background:#1d4ed8;padding:18px;border-radius:16px;text-align:center;color:#fff">
+    <div style="font-size:28px">🌐</div>
+    <h3 style="margin:8px 0;font-weight:700">Server Global</h3>
+    <p>Akses ke server di berbagai negara untuk membuka blokir.</p>
+  </div>
+  <div style="background:#1d4ed8;padding:18px;border-radius:16px;text-align:center;color:#fff">
+    <div style="font-size:28px">🎧</div>
+    <h3 style="margin:8px 0;font-weight:700">Support 24/7</h3>
+    <p>Tim support siap membantu Anda kapan saja dibutuhkan.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="background:#0f172a;padding:20px;margin-top:20px;color:#fff">
+  <div style="margin-bottom:16px">
+    <h4 style="margin-bottom:6px;border-bottom:2px solid #3b82f6;display:inline-block">Tentang Kami</h4>
+    <p>DIN STORE 2025 menyediakan layanan Config, VPS, dan Kuota internet terpercaya dengan harga terjangkau.</p>
+  </div>
+  <div style="margin-bottom:16px">
+    <h4 style="margin-bottom:6px;border-bottom:2px solid #3b82f6;display:inline-block">Layanan</h4>
+    <p>Kuota Akrab<br>Config Premium<br>Server VPS<br>Inject Tools</p>
+  </div>
+  <div style="margin-bottom:16px">
+    <h4 style="margin-bottom:6px;border-bottom:2px solid #3b82f6;display:inline-block">Informasi</h4>
+    <p>Testimoni<br>FAQ<br>Kebijakan Privasi<br>Syarat & Ketentuan</p>
+  </div>
+  <div style="margin-bottom:16px">
+    <h4 style="margin-bottom:6px;border-bottom:2px solid #3b82f6;display:inline-block">Kontak Kami</h4>
+    <p>WhatsApp: +62 812-3456-7890<br>Email: dinstore@example.com<br>Jakarta, Indonesia</p>
+  </div>
+  <div style="text-align:center;margin-top:10px;color:#94a3b8;font-size:14px">
+    © 2025 DinStore2025 | All rights reserved.
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="overlay" id="overlay">
+  <div class="backdrop" onclick="closeModal()"></div>
+  <div class="modal">
+    <h2 id="modalTitle"></h2>
+    <div id="modalDesc"></div>
+    <div class="actions">
+      <a id="modalWa" href="#" target="_blank" class="shiny">Order via WhatsApp</a>
+      <button onclick="closeModal()" class="shiny">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tombol WhatsApp Melayang -->
+<a href="https://wa.me/6287776581216" target="_blank" 
+   class="shiny"
+   style="position:fixed;bottom:20px;right:20px;background:#25d366;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 4px 8px rgba(0,0,0,0.4)">
+  <i class="fab fa-whatsapp" style="font-size:28px;color:white"></i>
+</a>
+
+<script>
+const WA_NUMBER = '6287776581216';
+
+const sgProducts = [
+  {id:'vip-sg7', title:'VIP SG 7 Hari', price:'Rp 3.000', desc:'Server Singapore VIP 7 Hari', features:['🌐 Server Singapore VIP','⚡ Support Wildcard','🎮 Game, Streaming, Zoom, VC lancar','📺 YouTube 4K smooth','📡 Anti Reconnect / DC','✅ Stabil & Fast Connect','📱 Multi Device / HP','💯 Full Support Admin']},
+  {id:'vip-sg15', title:'VIP SG 15 Hari', price:'Rp 5.000', desc:'Server Singapore VIP 15 Hari', features:['🌐 Server Singapore VIP','⚡ Support Wildcard','🎮 Game, Streaming, Zoom, VC lancar','📺 YouTube 4K smooth','📡 Anti Reconnect / DC','✅ Stabil & Fast Connect','📱 Multi Device / HP','💯 Full Support Admin']},
+  {id:'vip-sg30', title:'VIP SG 30 Hari', price:'Rp 10.000', desc:'Server Singapore VIP 30 Hari', features:['🌐 Server Singapore VIP','⚡ Support Wildcard','🎮 Game, Streaming, Zoom, VC lancar','📺 YouTube 4K smooth','📡 Anti Reconnect / DC','✅ Stabil & Fast Connect','📱 Multi Device / HP','💯 Full Support Admin']},
+  {id:'vip-sg60', title:'VIP SG 60 Hari', price:'Rp 18.000', desc:'Server Singapore VIP 60 Hari', features:['🌐 Server Singapore VIP','⚡ Support Wildcard','🎮 Game, Streaming, Zoom, VC lancar','📺 YouTube 4K smooth','📡 Anti Reconnect / DC','✅ Stabil & Fast Connect','📱 Multi Device / HP','💯 Full Support Admin']}
+];
+const idProducts = [
+  {id:'vip-id7', title:'VIP ID 7 Hari', price:'Rp 4.000', desc:'Server Indonesia VIP 7 Hari', features:['🌐 Server Indonesia VIP','⚡ Latency rendah','🎮 Game, Streaming lancar','📺 YouTube HD smooth','📡 Anti Reconnect / DC','✅ Stabil & Fast Connect','📱 Multi Device / HP']},
+  {id:'vip-id15', title:'VIP ID 15 Hari', price:'Rp 6.000', desc:'Server Indonesia VIP 15 Hari', features:['🌐 Server Indonesia VIP','⚡ Latency rendah','🎮 Game, Streaming lancar','📺 YouTube HD smooth','📡 Anti Reconnect / DC','✅ Stabil & Fast Connect','📱 Multi Device / HP']},
+  {id:'vip-id30', title:'VIP ID 30 Hari', price:'Rp 12.000', desc:'Server Indonesia VIP 30 Hari', features:['🌐 Server Indonesia VIP','⚡ Latency rendah','🎮 Game, Streaming lancar','📺 YouTube HD smooth','📡 Anti Reconnect / DC','✅ Stabil & Fast Connect','📱 Multi Device / HP']},
+  {id:'vip-id60', title:'VIP ID 60 Hari', price:'Rp 24.000', desc:'Server Indonesia VIP 60 Hari', features:['🌐 Server Indonesia VIP','⚡ Latency rendah','🎮 Game, Streaming lancar','📺 YouTube HD smooth','📡 Anti Reconnect / DC','✅ Stabil & Fast Connect','📱 Multi Device / HP']}
+];
+const vpsProducts = [
+  {id:'vps1', title:'VPS 1 Core 1GB', price:'Rp 30.000', desc:'DIGITAL OCEAN VPS', features:['💻 DIGITAL OCEAN VPS','🖥️ CPU: 1 Core','📦 RAM: 1 GB','📡 Bandwidth: 1 TB','⏳ Durasi: 30 Hari','✅ Garansi 25 Hari','🔄 2x Replace','⚡ Full Root Access','🎁 Free Request Domain']},
+  {id:'vps2', title:'VPS 1 Core 2GB', price:'Rp 35.000', desc:'DIGITAL OCEAN VPS', features:['💻 DIGITAL OCEAN VPS','🖥️ CPU: 1 Core','📦 RAM: 2 GB','📡 Bandwidth: 1 TB','⏳ Durasi: 30 Hari','✅ Garansi 25 Hari','🔄 2x Replace','⚡ Full Root Access','🎁 Free Request Domain']},
+  {id:'vps3', title:'VPS 2 Core 2GB', price:'Rp 45.000', desc:'DIGITAL OCEAN VPS', features:['💻 DIGITAL OCEAN VPS','🖥️ CPU: 2 Core','📦 RAM: 2 GB','📡 Bandwidth: 2 TB','⏳ Durasi: 30 Hari','✅ Garansi 25 Hari','🔄 2x Replace','⚡ Full Root Access','🎁 Free Request Domain']},
+  {id:'vps4', title:'VPS 2 Core 4GB', price:'Rp 55.000', desc:'DIGITAL OCEAN VPS', features:['💻 DIGITAL OCEAN VPS','🖥️ CPU: 2 Core','📦 RAM: 4 GB','📡 Bandwidth: 2 TB','⏳ Durasi: 30 Hari','✅ Garansi 25 Hari','🔄 2x Replace','⚡ Full Root Access','🎁 Free Request Domain']},
+  {id:'vps5', title:'VPS 4 Core 8GB', price:'Rp 95.000', desc:'DIGITAL OCEAN VPS', features:['💻 DIGITAL OCEAN VPS','🖥️ CPU: 4 Core','📦 RAM: 8 GB','📡 Bandwidth: 3 TB','⏳ Durasi: 30 Hari','✅ Garansi 25 Hari','🔄 2x Replace','⚡ Full Root Access','🎁 Free Request Domain']},
+  {id:'vps6', title:'VPS 8 Core 16GB', price:'Rp 190.000', desc:'DIGITAL OCEAN VPS', features:['💻 DIGITAL OCEAN VPS','🖥️ CPU: 8 Core','📦 RAM: 16 GB','📡 Bandwidth: 5 TB','⏳ Durasi: 30 Hari','✅ Garansi 25 Hari','🔄 2x Replace','⚡ Full Root Access','🎁 Free Request Domain']}
+];
+const injectProducts = [
+  {id:'inject', title:'Inject Tools', price:'Rp 10.000', desc:'Tools & script optimasi koneksi', features:['⚡ Script Inject Premium','📡 Cocok untuk berbagai provider','🎮 Optimasi gaming & streaming','✅ Mudah digunakan','💯 Update & Support Admin']}
+];
+const sosmedProducts = [
+  {
+    id:'yt-premium',
+    title:'YouTube Premium',
+    price:'Rp 50.000 / bulan',
+    desc:'Akses bebas iklan & musik. Aktivasi cepat.',
+    logo:'https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg'
+  },
+  {
+    id:'ig-follow',
+    title:'Follower Instagram',
+    price:'Rp 30.000 / 1000 followers',
+    desc:'Tambah followers real/fast. Pilih paket sesuai kebutuhan.',
+    logo:'https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg'
+  },
+  {
+    id:'tiktok-follow',
+    title:'Follow TikTok',
+    price:'Rp 25.000 / 1000 followers',
+    desc:'Tambah followers cepat dan aman.',
+    logo:'https://files.catbox.moe/e0t3d6.jpg'
+  },
+  {
+    id:'tiktok-like',
+    title:'Like TikTok',
+    price:'Rp 20.000 / 1000 like',
+    desc:'Tingkatkan like pada video pilihan.',
+    logo:'https://files.catbox.moe/blmsdt.jpeg'
+  },
+  {
+    id:'tiktok-view',
+    title:'View TikTok',
+    price:'Rp 15.000 / 1000 view',
+    desc:'Paket view untuk menaikkan impresi video.',
+    logo:'https://files.catbox.moe/c8hlay.jpeg'
+  }
+];
+const akrab = [
+  {
+    id:'akrab-v1',
+    title:'AKRAB V1',
+    price:'Rp 52.000',
+    desc:'Kuota resmi XL/AXIS, masa aktif 28-30 hari',
+    features:[
+      '📶 Area 1 : 13 - 15 GB',
+      '📶 Area 2 : 15 - 17 GB',
+      '📶 Area 3 : 20 - 22 GB',
+      '📶 Area 4 : 30 - 32 GB',
+      '<a href="https://cek-area-axrab.vercel.app" target="_blank">🔗 Cek Area</a>',
+      '✅ Resmi/Official/Garansi 100%',
+      '⚠️ Wajib UNREG paket Akrab lama',
+      '➕ Menambah masa aktif kartu',
+      '📞 Gratis nelpon & SMS sesama XL/AXIS'
+    ]
+  },
+  {
+    id:'akrab-v2',
+    title:'AKRAB V2',
+    price:'Rp 70.000',
+    desc:'Kuota resmi XL/AXIS, masa aktif 28-30 hari',
+    features:[
+      '📶 Area 1 : 38 - 40 GB',
+      '📶 Area 2 : 40 - 42 GB',
+      '📶 Area 3 : 45 - 47 GB',
+      '📶 Area 4 : 55 - 57 GB',
+      '<a href="https://cek-area-axrab.vercel.app" target="_blank">🔗 Cek Area</a>',
+      '✅ Resmi/Official/Garansi 100%',
+      '⚠️ Wajib UNREG paket Akrab lama',
+      '➕ Menambah masa aktif kartu',
+      '📞 Gratis nelpon & SMS sesama XL/AXIS'
+    ]
+  },
+  {
+    id:'akrab-medium',
+    title:'AKRAB MEDIUM',
+    price:'Rp 65.000',
+    desc:'Kuota resmi XL/AXIS, masa aktif 28-30 hari',
+    features:[
+      '📶 Area 1 : 31,75 - 33,75 GB',
+      '📶 Area 2 : 33,75 - 35,75 GB',
+      '📶 Area 3 : 38,75 - 40,75 GB',
+      '📶 Area 4 : 48,75 - 50,75 GB',
+      '<a href="https://cek-area-axrab.vercel.app" target="_blank">🔗 Cek Area</a>',
+      '✅ Resmi/Official/Garansi 100%',
+      '⚠️ Wajib UNREG paket Akrab lama',
+      '➕ Menambah masa aktif kartu',
+      '📞 Gratis nelpon & SMS sesama XL/AXIS'
+    ]
+  },
+  {
+    id:'akrab-combo',
+    title:'AKRAB COMBO',
+    price:'Rp 79.000',
+    desc:'Kuota resmi XL/AXIS, masa aktif 28-30 hari',
+    features:[
+      '📶 Area 1 : 50,5 - 52,5 GB',
+      '📶 Area 2 : 52,5 - 54,5 GB',
+      '📶 Area 3 : 57,5 - 59,5 GB',
+      '📶 Area 4 : 67,5 - 69,5 GB',
+      '<a href="https://cek-area-axrab.vercel.app" target="_blank">🔗 Cek Area</a>',
+      '✅ Resmi/Official/Garansi 100%',
+      '⚠️ Wajib UNREG paket Akrab lama',
+      '➕ Menambah masa aktif kartu',
+      '📞 Gratis nelpon & SMS sesama XL/AXIS'
+    ]
+  },
+  {
+    id:'akrab-max',
+    title:'AKRAB MAX',
+    price:'Rp 86.000',
+    desc:'Kuota resmi XL/AXIS, masa aktif 28-30 hari',
+    features:[
+      '📶 Area 1 : 63 - 65 GB',
+      '📶 Area 2 : 65 - 67 GB',
+      '📶 Area 3 : 70 - 72 GB',
+      '📶 Area 4 : 80 - 82 GB',
+      '<a href="https://cek-area-axrab.vercel.app" target="_blank">🔗 Cek Area</a>',
+      '✅ Resmi/Official/Garansi 100%',
+      '⚠️ Wajib UNREG paket Akrab lama',
+      '➕ Menambah masa aktif kartu',
+      '📞 Gratis nelpon & SMS sesama XL/AXIS'
+    ]
+  },
+  {
+    id:'akrab-jumbo',
+    title:'AKRAB JUMBO',
+    price:'Rp 87.000',
+    desc:'Kuota resmi XL/AXIS, masa aktif 28-30 hari',
+    features:[
+      '📶 Area 1 : 65 - 67 GB',
+      '📶 Area 2 : 70 - 72 GB',
+      '📶 Area 3 : 83 - 85 GB',
+      '📶 Area 4 : 123 - 125 GB',
+      '<a href="https://cek-area-axrab.vercel.app" target="_blank">🔗 Cek Area</a>',
+      '✅ Resmi/Official/Garansi 100%',
+      '⚠️ Wajib UNREG paket Akrab lama',
+      '➕ Menambah masa aktif kartu',
+      '📞 Gratis nelpon & SMS sesama XL/AXIS'
+    ]
+  },
+  {
+    id:'akrab-ultra',
+    title:'AKRAB ULTRA',
+    price:'Rp 100.000',
+    desc:'Kuota resmi XL/AXIS, masa aktif 28-30 hari',
+    features:[
+      '📶 Area 1 : 88 - 90 GB',
+      '📶 Area 2 : 90 - 92 GB',
+      '📶 Area 3 : 95 - 97 GB',
+      '📶 Area 4 : 103 - 106 GB',
+      '<a href="https://cek-area-axrab.vercel.app" target="_blank">🔗 Cek Area</a>',
+      '✅ Resmi/Official/Garansi 100%',
+      '⚠️ Wajib UNREG paket Akrab lama',
+      '➕ Menambah masa aktif kartu',
+      '📞 Gratis nelpon & SMS sesama XL/AXIS'
+    ]
+  }
+];
+
+/* --- Render Kategori Produk (grid) --- */
+function renderCategory(title, items){
+  const section=document.createElement('section');
+  section.innerHTML=`<h2>${title}</h2>`;
+  const grid=document.createElement('div');
+  grid.className='grid';
+  items.forEach(p=>{
+    const el=document.createElement('div');
+    el.className='card';
+    el.innerHTML=`<h4>${p.title}</h4><p>${p.desc || ''}</p><div class="price">${p.price}</div><button class="shiny" onclick="openModal('${p.id}')">Beli</button>`;
+    grid.appendChild(el);
+  });
+  section.appendChild(grid);
+  document.getElementById('products').appendChild(section);
+}
+renderCategory('Server Singapore', sgProducts);
+renderCategory('Server Indonesia', idProducts);
+renderCategory('VPS Digital Ocean', vpsProducts);
+
+/* --- Tombol bawah VPS + Sosmed strip (full seperti file asli, tapi sosmed tetap horizontal) --- */
+const sectionBtns=document.createElement('section');
+sectionBtns.innerHTML=`
+  <div style="margin:20px 0;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <a href="https://link-update-config.vercel.app" target="_blank" class="shiny" style="flex:1;min-width:140px;max-width:200px;background:linear-gradient(90deg,#2563eb,#3b82f6);padding:12px;border-radius:12px;color:#fff;font-weight:600;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px">
+      <i class="fas fa-sync-alt"></i> Update Config
+    </a>
+    <a href="https://whatsapp.com/channel/0029Vaz4J9rHLHQaCsN2NN0O" target="_blank" class="shiny" style="flex:1;min-width:140px;max-width:200px;background:linear-gradient(90deg,#2563eb,#3b82f6);padding:12px;border-radius:12px;color:#fff;font-weight:600;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px">
+      <i class="fas fa-bullhorn"></i> Saluran
+    </a>
+    <a href="https://whatsapp.com/channel/0029Vb0o48PKgsNu5DqoA33o" target="_blank" class="shiny" style="flex:1;min-width:140px;max-width:200px;background:linear-gradient(90deg,#2563eb,#3b82f6);padding:12px;border-radius:12px;color:#fff;font-weight:600;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px">
+      <i class="fas fa-comment-dots"></i> Testimoni
+    </a>
+  </div>
+
+  <!-- Section Produk Sosial Media & Premium -->
+  <section id="sosmed" style="padding:30px 20px;text-align:center">
+    <h2 style="color:#4facfe;margin-bottom:20px">📦 Produk Sosial Media & Premium</h2>
+    <p style="color:#aaa">Geser ke kanan untuk melihat semua produk</p>
+
+    <div class="prod-strip"></div>
+  </section>
+`;
+document.getElementById('products').appendChild(sectionBtns);
+
+/* --- Render Inject & lainnya setelah sectionBtns --- */
+renderCategory('Inject Tools', injectProducts);
+
+/* --- Render Sosmed (horizontal strip) --- */
+function renderSosmed(items){
+  const strip=document.querySelector('#sosmed .prod-strip');
+  items.forEach(p=>{
+    const el=document.createElement('article');
+    el.className='prod-card';
+    el.innerHTML=`
+      <div class="prod-thumb">
+        <img src="${p.logo}" alt="${p.title}">
+      </div>
+      <h3 class="prod-title">${p.title}</h3>
+      <p class="prod-desc">${p.desc}</p>
+      <p class="prod-price" style="font-weight:bold">${p.price}</p>
+      <div class="prod-actions" style="margin-top:auto;width:100%">
+        <a class="btn-wa" onclick="openModal('${p.id}')"><i class="fab fa-whatsapp"></i> Order via WA</a>
+      </div>
+    `;
+    strip.appendChild(el);
+  });
+}
+renderSosmed(sosmedProducts);
+
+/* --- Render Akrab --- */
+const akrabEl=document.getElementById('akrab');
+akrab.forEach(a=>{
+  const el=document.createElement('div');
+  el.className='akrab-item';
+  el.innerHTML=`<h4>${a.title}</h4><p>${a.desc}</p><div class="price">${a.price}</div><button class="shiny" onclick="openModal('${a.id}')">Beli via Admin</button>`;
+  akrabEl.appendChild(el);
+});
+
+/* --- Modal --- */
+const overlay=document.getElementById('overlay');
+const modalTitle=document.getElementById('modalTitle');
+const modalDesc=document.getElementById('modalDesc');
+const modalWa=document.getElementById('modalWa');
+function openModal(id){
+  const item=[...sgProducts,...idProducts,...vpsProducts,...injectProducts,...akrab,...sosmedProducts].find(x=>x.id===id);
+  if(!item) return;
+  modalTitle.textContent=item.title;
+  let html=`<div style="margin:8px 0;font-weight:700;color:var(--accent)">${item.price}</div>`;
+  if(item.desc) html+=`<p>${item.desc}</p>`;
+  if(item.features){html+=`<ul style="margin:10px 0;padding-left:18px;line-height:1.6">`+item.features.map(f=>`<li>${f}</li>`).join('')+`</ul>`;}
+  modalDesc.innerHTML=html;
+  modalWa.href=`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Halo admin, saya mau beli '+item.title+' ('+item.price+')')}`;
+  overlay.classList.add('show');
+}
+function closeModal(){overlay.classList.remove('show');}
+</script>
+</body>
+</html>

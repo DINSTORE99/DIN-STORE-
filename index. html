@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DIN STORE 2025</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <img src="https://i.ibb.co.com/qGH3Nyz/Screenshot-20250913-215333.jpg" alt="DIN STORE 2025" />
+      <h1>DIN STORE</h1>
+    </div>
+  </header>
+
+  <!-- Produk -->
+  <section id="products"></section>
+
+  <!-- Kuota Akrab -->
+  <section>
+    <h2>Kuota Akrab</h2>
+    <div class="grid" id="akrab"></div>
+  </section>
+
+  <!-- Fitur -->
+  <section class="features">
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Cepat & Stabil</h3>
+      <p>Koneksi internet super cepat dan stabil untuk semua kebutuhan Anda.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🛡️</div>
+      <h3>Aman & Terpercaya</h3>
+      <p>Enkripsi tingkat tinggi untuk melindungi data dan privasi Anda.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🌐</div>
+      <h3>Server Global</h3>
+      <p>Akses ke server di berbagai negara untuk membuka blokir.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🎧</div>
+      <h3>Support 24/7</h3>
+      <p>Tim support siap membantu Anda kapan saja dibutuhkan.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#0f172a;padding:20px;margin-top:20px;color:#fff">
+    <div style="margin-bottom:16px">
+      <h4 style="margin-bottom:6px;border-bottom:2px solid #3b82f6;display:inline-block">Tentang Kami</h4>
+      <p>DIN STORE menyediakan sejak tahun 2024 layanan Config, VPS, dan Kuota Internet dengan standar profesional dan keamanan tinggi.
+Kami berkomitmen menjadi mitra digital terpercaya yang selalu memberikan solusi efisien, terjangkau, dan berkualitas untuk semua pelanggan..</p>
+    </div>
+    <div style="margin-bottom:16px">
+      <h4 style="margin-bottom:6px;border-bottom:2px solid #3b82f6;display:inline-block">Layanan</h4>
+      <p>Kuota Akrab<br>Config/vpn Premium<br>Server VPS<br>dor kuota<br>suntik sosmed</p>
+    </div>
+    <div style="margin-bottom:16px">
+      <h4 style="margin-bottom:6px;border-bottom:2px solid #3b82f6;display:inline-block">Informasi</h4>
+      <p>Testimoni<br>FAQ<br>Kebijakan Privasi<br>Syarat & Ketentuan</p>
+    </div>
+    <div style="margin-bottom:16px">
+      <h4 style="margin-bottom:6px;border-bottom:2px solid #3b82f6;display:inline-block">Kontak Kami</h4>
+      <p>WhatsApp: +6287776581216<br>Email: dindinstore8@gmail.com<br>Cilacap,Jawa tengah</p>
+    </div>
+    <div style="text-align:center;margin-top:10px;color:#94a3b8;font-size:14px">
+      © 2025 DinStore2025
+    </div>
+  </footer>
+
+  <!-- Modal Detail Produk -->
+  <div class="overlay">
+    <div class="modal">
+      <h2></h2>
+      <div class="desc"></div>
+      <p class="price"></p>
+      <div class="actions">
+        <a href="#" target="_blank" class="btn-wa">Order via WA</a>
+        <button onclick="closeModal()">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tombol WhatsApp Melayang -->
+  <a href="https://wa.me/6287776581216" target="_blank"
+     class="shiny"
+     style="position:fixed;bottom:20px;right:20px;background:#25d366;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 4px 8px rgba(0,0,0,0.4)">
+    <i class="fab fa-whatsapp" style="font-size:28px;color:white"></i>
+  </a>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+</body>
+</html>

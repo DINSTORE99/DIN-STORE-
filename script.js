@@ -53,7 +53,7 @@ const sgProducts = [
   {
     id: 'vip-sg60',
     title: 'VIP SG 60 Hari',
-    price: 'Rp 18.000',
+    price: 'Rp 20.000',
     desc: 'Server Singapore VIP 60 Hari',
     features: [
       '🌐 Server Singapore VIP',
@@ -73,7 +73,7 @@ const idProducts = [
   {
     id: 'vip-id7',
     title: 'VIP ID 7 Hari',
-    price: 'Rp 4.000',
+    price: 'Rp 5.000',
     desc: 'Server Indonesia VIP 7 Hari',
     features: [
       '🌐 Server Indonesia VIP',
@@ -571,63 +571,3 @@ document.querySelectorAll(".faq-question").forEach(btn => {
 });
 
 
-// === Visitor counter (robust, with error handling & smooth animation) ===
-function animateCountTo(elem, start, end, durationMs = 800) {
-  if (!elem) return;
-  start = Number(start) || 0;
-  end = Number(end) || 0;
-
-  if (start === end) {
-    elem.innerText = end;
-    return;
-  }
-
-  // Use requestAnimationFrame for smoothness
-  const startTime = performance.now();
-  function frame(now) {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / durationMs, 1);
-    // easing (easeOutCubic)
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(start + (end - start) * eased);
-    elem.innerText = current;
-    if (progress < 1) requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-}
-
-function loadVisitorCount() {
-  const el = document.getElementById('visitor-count');
-  if (!el) {
-    console.warn('visitor-count element not found. Pastikan ada element dengan id="visitor-count" di HTML.');
-    return;
-  }
-
-  // Tampilkan loading sementara
-  el.innerText = '...';
-
-  // CountAPI endpoint (namespace/key boleh diganti unik)
-  const url = 'https://api.countapi.xyz/hit/dinstore2025/visitor';
-
-  fetch(url)
-    .then(response => {
-      if (!response.ok) throw new Error('Network response not ok: ' + response.status);
-      return response.json();
-    })
-    .then(data => {
-      if (!data || typeof data.value === 'undefined') throw new Error('Response tidak mengandung data.value');
-      const finalValue = Number(data.value) || 0;
-
-      // untuk efek, mulai dari value- (min 0) atau 0
-      const startFrom = Math.max(0, finalValue - Math.min(50, Math.floor(finalValue * 0.15)));
-      animateCountTo(el, startFrom, finalValue, 900);
-    })
-    .catch(err => {
-      console.error('Gagal mengambil visitor count:', err);
-      // fallback: tampilkan 0 atau dash
-      el.innerText = '0';
-    });
-}
-
-// panggil saat load
-window.addEventListener('load', loadVisitorCount);

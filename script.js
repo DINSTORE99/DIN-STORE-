@@ -87,9 +87,9 @@ const idProducts = [
   },
   {
     id: 'vip-id15',
-    title: 'VIP ID 15 Hari',
-    price: 'Rp 6.000',
-    desc: 'Server Indonesia VIP 15 Hari',
+    title: 'VIP ID 20 Hari',
+    price: 'Rp 8.000',
+    desc: 'Server Indonesia VIP 20 Hari',
     features: [
       '🌐 Server Indonesia VIP',
       '⚡ Latency rendah',

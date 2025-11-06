@@ -429,3 +429,12 @@ header {
   box-shadow: 0 0 18px rgba(139, 92, 246, 0.4);
   filter: brightness(1.1);
 }
+
+
+#visitor-count {
+  color: #7dd3fc;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(125, 211, 252, 0.6);
+  display: inline-block;
+  min-width: 48px;
+}

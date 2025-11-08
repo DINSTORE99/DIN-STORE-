@@ -187,7 +187,12 @@
 <script src="script.js"></script>
 
 <script>
-fetch("https://api.countapi.xyz/hit/dinstore.web.id/visitors")
+// buat key kalau belum ada
+fetch("https://api.countapi.xyz/create?namespace=dinstore&key=webid&value=0")
+  .then(() => {
+    // tiap pengunjung, tambah counter
+    return fetch("https://api.countapi.xyz/hit/dinstore/webid");
+  })
   .then(r => r.json())
   .then(d => {
     document.getElementById("visitorCounter").innerHTML = `👁️ Pengunjung: ${d.value}`;

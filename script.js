@@ -241,23 +241,41 @@ const vpsProducts = [
 /* === Produk Inject / XL Bizz Lite === */
 const injectProducts = [
   {
-    id: 'inject',
-    title: 'BIZ LITE',
-    price: 'Rp 55.000',
+    id: 'vidi-beats', // unik
+    title: 'XL VIDI BEATS',
+    price: 'Rp 50.000',
     desc: 'Paket Inject / VPN Fup Unlimited Sudah Termasuk Config',
     features: [
-      'Paket Inject / VPN',
+      'XL VIDI BEATS',
       'Detail paket:',
-      'Kuota utama : 6GB',
-      'SMS & TLP : Unlimited',
-      'wa & line Unlimited',
-      'Masa aktif 30 Hari',
-      'Fup biz 300GB+',
-      'Disarankan gunakan nomor non-pribadi',
+      'Fup tested : 150GB± masih konek',
+      'Non resmi : perlu OTP',
+      '💰 Harga : Rp 45.000 (Paket saja)',
+      '💰 Harga : Rp 50.000 (Paket + config)',
+      '⌛ Masa aktif 30 Hari',
+      '⚠️ Khusus Jona Timur : Jateng, Jatim, Sulawesi, Kalimantan!!',
       'Unlimited unofficial (tidak ada garansi)'
+    ]
+  },
+  {
+    id: 'biz-ecommerce', // unik
+    title: 'XL BIZ E-COMMERCE',
+    price: 'Rp 50.000',
+    desc: 'Paket Inject / VPN Fup Unlimited Sudah Termasuk Config',
+    features: [
+      '📦 XL BIZ E-COMMERCE',
+      '📶 Fup tested : 70GB perhari',
+      '⌛ Masa aktif : 30 hari',
+      '✍🏻 Non resmi : perlu OTP',
+      '💰 Harga : Rp 55.000 (paket saja)',
+      '💰 Harga : Rp 65.000 (paket + config)',
+      '⚠️ Khusus Jona Barat : Jabar, Jabodetabek, Banten, Sumatera!!',
+        'Unlimited unofficial (tidak ada garans)'
     ]
   }
 ];
+
+
 
 /* === Produk Sosial Media & Premium === */
 const sosmedProducts = [
@@ -457,14 +475,14 @@ sectionBtns.innerHTML=`
   </div>
 
   <section id="sosmed" style="padding:30px 20px;text-align:center">
-    <h2 style="color:#4facfe;margin-bottom:20px">📦 Produk Sosial Media & Premium</h2>
+    <h2 style="color:#4facfe;margin-bottom:20px">Suntik sosmed & akun premium</h2>
     <p style="color:#aaa">Geser ke kanan untuk melihat semua produk</p>
 
     <div class="prod-strip"></div>
   </section>
 `;
 document.getElementById('products').appendChild(sectionBtns);
-renderCategory('XL BIZZ LITE', injectProducts);
+renderCategory('📦DOR KUOTA XL UNLI', injectProducts);
 
 /* === Render Sosmed === */
 function renderSosmed(items){
@@ -573,3 +591,4 @@ document.querySelectorAll(".faq-question").forEach(btn => {
 });
 
 
+      

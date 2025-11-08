@@ -21,7 +21,7 @@ const sgProducts = [
   {
     id: 'vip-sg15',
     title: 'VIP SG 15 Hari',
-    price: 'Rp 5.000',
+    price: 'Rp 6.000',
     desc: 'Server Singapore VIP 15 Hari',
     features: [
       '🌐 Server Singapore VIP',

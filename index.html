@@ -191,6 +191,9 @@ fetch("https://api.countapi.xyz/hit/dinstore.web.id/visitors")
   .then(r => r.json())
   .then(d => {
     document.getElementById("visitorCounter").innerHTML = `👁️ Pengunjung: ${d.value}`;
+  })
+  .catch(() => {
+    document.getElementById("visitorCounter").innerHTML = "👁️ Pengunjung: - (Error)";
   });
 </script>
 </body>

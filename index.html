@@ -16,9 +16,15 @@
 
   <!-- Header -->
   <header>
-    <div class="brand">
-      <img src="https://i.ibb.co.com/qGH3Nyz/Screenshot-20250913-215333.jpg" alt="DIN STORE 2025" />
-      <h1>DIN STORE</h1>
+<div class="brand">
+  <img src="https://i.ibb.co.com/qGH3Nyz/Screenshot-20250913-215333.jpg" alt="DIN STORE 2025" />
+  <div>
+    <h1>DIN STORE</h1>
+    <div id="visitorCounter" class="visitor-counter">Menghitung pengunjung...</div>
+  </div>
+</div>
+
+
     </div>
   </header>
 
@@ -178,8 +184,14 @@
     <i class="fab fa-whatsapp" style="font-size:28px;color:white"></i>
   </a>
 
-  <!-- Script -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
+<script>
+fetch("https://api.countapi.xyz/hit/dinstore.web.id/visitors")
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById("visitorCounter").innerHTML = `👁️ Pengunjung: ${d.value}`;
+  });
+</script>
 </body>
 </html>

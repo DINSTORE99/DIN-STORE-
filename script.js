@@ -573,3 +573,31 @@ document.querySelectorAll(".faq-question").forEach(btn => {
 });
 
 
+// letakkan di script.js (atau di <script> yang valid di index.html)
+(function updateVisitor() {
+  const el = document.getElementById('visitorCounter');
+  if (!el) return; // kalau elemen belum ada, hentikan
+
+  fetch("https://api.countapi.xyz/hit/dinstore.web.id/visitors")
+    .then(response => {
+      if (!response.ok) throw new Error('Network response not ok');
+      return response.json();
+    })
+    .then(data => {
+      el.textContent = `👁️ Pengunjung: ${data.value ?? '-'}`;
+    })
+    .catch(err => {
+      console.warn('Count API error:', err);
+      el.textContent = '👁️ Pengunjung: -';
+    });
+})();
+
+// opsional: update berkala setiap 60 detik
+setInterval(() => {
+  const ev = document.getElementById('visitorCounter');
+  if (!ev) return;
+  fetch("https://api.countapi.xyz/hit/dinstore.web.id/visitors")
+    .then(r => r.json())
+    .then(d => { ev.textContent = `👁️ Pengunjung: ${d.value}`; })
+    .catch(() => { ev.textContent = '👁️ Pengunjung: -'; });
+}, 60000);

@@ -431,12 +431,4 @@ header {
 }
 
 
-.visitor-counter {
-  font-size: 13px;
-  color: #8faeff;
-  opacity: 0.9;
-  margin-top: -4px;
-  display: block;
-  text-shadow: 0 0 6px rgba(107, 155, 255, 0.6);
-}
 

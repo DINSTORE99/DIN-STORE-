@@ -14,15 +14,13 @@
 </head>
 <body>
 
-  <!-- Header -->
+    <!-- Header -->
   <header>
-<div class="brand">
-  <img src="https://i.ibb.co.com/qGH3Nyz/Screenshot-20250913-215333.jpg" alt="DIN STORE 2025" />
-  <div>
-    <h1>DIN STORE</h1>
-    <div id="visitorCounter" class="visitor-counter">Menghitung pengunjung...</div>
-  </div>
-</div>
+    <div class="brand">
+      <img src="https://i.ibb.co.com/qGH3Nyz/Screenshot-20250913-215333.jpg" alt="DIN STORE 2025" />
+      <h1>DIN STORE</h1>
+    </div>
+  </header>
 
 
     </div>
@@ -184,22 +182,8 @@
     <i class="fab fa-whatsapp" style="font-size:28px;color:white"></i>
   </a>
 
-<script src="script.js"></script>
+  <!-- Script -->
+  <script src="script.js"></script>
 
-<script>
-// buat key kalau belum ada
-fetch("https://api.countapi.xyz/create?namespace=dinstore&key=webid&value=0")
-  .then(() => {
-    // tiap pengunjung, tambah counter
-    return fetch("https://api.countapi.xyz/hit/dinstore/webid");
-  })
-  .then(r => r.json())
-  .then(d => {
-    document.getElementById("visitorCounter").innerHTML = `👁️ Pengunjung: ${d.value}`;
-  })
-  .catch(() => {
-    document.getElementById("visitorCounter").innerHTML = "👁️ Pengunjung: - (Error)";
-  });
-</script>
 </body>
 </html>

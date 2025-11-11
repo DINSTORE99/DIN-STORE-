@@ -461,7 +461,7 @@ renderCategory('🖥VPS Digital Ocean', vpsProducts);
 const sectionBtns=document.createElement('section');
 sectionBtns.innerHTML=`
   <div style="margin:20px 0;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-  <a href="https://dingratisan.vercel.app/" target="_blank" class="shiny" 
+  <a href="https://update.hc.dinstore.web.id/" target="_blank" class="shiny" 
      style="flex:1;min-width:140px;max-width:200px;background:linear-gradient(90deg,#2563eb,#3b82f6);padding:12px;border-radius:12px;color:#fff;font-weight:600;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;">
     <i class="fas fa-sync-alt"></i> Update Config
 
